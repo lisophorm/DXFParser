@@ -6,17 +6,17 @@ class Text extends Entity {
     }
 
     //protected function
-    __getValue() {
+    get value() {
         return this.__getProperty('1');
     }
 
     //protected function
-    __getFontSize() {
-        return this.__getProperty('40').toFixed(2);
-    }entity
+    get fontSize() {
+        return new Number(this.__getProperty('40')).toFixed(2);
+    }
 
     //protected function
-    __getStyle() {
+    get style() {
         var style = this.__getProperty('7');
 
         if (!style) {
@@ -27,7 +27,7 @@ class Text extends Entity {
     }
 
     //protected function
-    __getRotation() {
+    get rotation() {
         var rotation = this.__getProperty('50');
 
         if (!rotation) {
@@ -38,14 +38,14 @@ class Text extends Entity {
     }
 
     //protected function
-    __getCoords() {
+    get coords() {
         return [
-            this.__getProperty('10').toFixed(2), 2, this.__getProperty('20').toFixed(2)
+            new Number(this.__getProperty('10')).toFixed(2), new Number(this.__getProperty('20')).toFixed(2)
         ];
     }
 
-    //protected function
-    __getGeoString() {
+    //TODO discuss if x,y or array
+    get geoString() {
         return 'POINT('+
             this.coords[0]+
         ' '+

@@ -54,23 +54,22 @@ class Entity {
     }
 
     //priv
-    __getType() {
+    get type() {
         return this.__getProperty('0');
+
     }
 
-    //priv
-
-    __getId() {
+    get id() {
         return this.__getProperty('5');
     }
 
     //priv
-    __getLayer() {
+    get layer() {
         return this.__getProperty('8');
     }
 
     //priv
-    __getGeoString() {
+    get geoString() {
         return null;
     }
 

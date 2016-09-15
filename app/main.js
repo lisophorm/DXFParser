@@ -4,8 +4,8 @@ import DXFParser from './DXFParser/DxfParser';
 
 var text = 'ciao';
 
-var cacca = new alfonso(3, 3);
-cacca.richiamino();
+var cacca = new culo(3, 3);
+cacca.a = 3;
 
 //var entitiesRegExp = /0\n*SECTION\n.2\nENTITIES[^]*0\n*ENDSEC/;
 
@@ -29,16 +29,22 @@ var churnDFX = function (risultato) {
     var sep = /\n/;
     var cionki = risultato.split(sep);
     var parsedDF = new DXFParser(risultato);
-    var DXFEntities=parsedDF.getEntities();
+    var DXFEntities = parsedDF.getEntities();
 
     var sanity_check_errors = [];
     var entities_simple = [];
     for (var entity_dxf of DXFEntities) {
         var entity = parsedDF.getEntityObject(entity_dxf);
-        if(!entity) {
+        if (!entity) {
             console.log('NO entity');
+            continue;
+        }
+        if (entity.type === 'TEXT') {
+            debugger;
         }
         console.log('is entity');
+        console.log(entity);
+
     }
 
     console.log('finito');
