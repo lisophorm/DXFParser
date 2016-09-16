@@ -16,7 +16,7 @@ class Polyline extends Entity {
     }
 
     //protected function
-    __getCoords() {
+    get coords() {
         var x_coords = this.__getProperty('10', true);
         var y_coords = this.__getProperty('20', true);
         var coords = [];
@@ -24,7 +24,7 @@ class Polyline extends Entity {
             coords.push(
                 [
                     // TODO debug this one
-                    x_coords[key].toFixed(4), y_coords[key].toFixed(4)
+                    new Number(x_coords[key]).toFixed(4), new Number(y_coords[key]).toFixed(4)
                 ]
             );
         }

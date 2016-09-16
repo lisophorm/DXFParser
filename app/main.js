@@ -37,6 +37,7 @@ var churnDFX = function (risultato) {
     for (var entity_dxf of DXFEntities) {
         var entity = parsedDF.getEntityObject(entity_dxf);
         if (entity.type === 'LWPOLYLINE') {
+            console.log(entity.coords);
             debugger;
         }
         if (!entity) {
@@ -50,6 +51,7 @@ var churnDFX = function (risultato) {
         for(var layer_type of layerTypes) {
             let gino=entity.layer;
             entity.cacca=8;
+            console.log(entity.coords);
             let enzo=entity.cacca;
             if(entity.layer.indexOf('#'+layer_type)===0) {
                 entity.layer_type=layer_type;
