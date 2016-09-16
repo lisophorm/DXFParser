@@ -39,11 +39,26 @@ var churnDFX = function (risultato) {
             console.log('NO entity');
             continue;
         }
-        if (entity.type === 'TEXT') {
-            debugger;
+        if (entity.type !== 'TEXT' && entity.type !== 'LWPOLYLINE') {
+            continue;
         }
-        console.log('is entity');
-        console.log(entity);
+        //ignore unsupported layers
+        ['object', 'plot', 'plot_ref'].forEach(function(layer_type){
+            let gino=entity.layer;
+            let pos=entity.layer.indexOf('#'+layer_type);
+            debugger;
+        })
+        {
+
+          //  if(strpos(strtolower($entity->layer), '#'.$layer_type) === 0)
+           // {
+        //        $entity->layer_type = $layer_type;//
+          //      continue;
+         //   }
+        }
+     //   if(!$entity->layer_type) continue;
+        //console.log('is entity');
+       // console.log(entity);
 
     }
 
