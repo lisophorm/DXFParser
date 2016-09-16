@@ -103,7 +103,6 @@ class Entity {
          */
         //set to cache
         this.__cache[property] = value;
-
         return value;
     }
 

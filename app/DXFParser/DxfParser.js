@@ -60,19 +60,41 @@ class DxfParser {
 //     //public static function
     getEntityObject(entity) {
         var type = this.getType(entity);
+        let handler = {
+            get (target, key) {
+                console.log('handler get');
+                console.log('key:',key);
+                if (typeof(target.__cache[key]) !== "undefined" && target.__cache[key] !== null) {
+                    console.log('CACHE EXISTS',key);
+                    return target.__cache[key];
+                }
+                if (typeof(target[key]) !== "undefined" && target[key] !== null) {
+                    console.log('CACHE NOT EXISTS',key);
+                    target.__cache[key]=target[key];
+                    return target.__cache[key];
+                } else {
+                    return null;
+                }
+            },
+            set (target, key, value) {
+                console.log('handler set');
+                target.__cache[key]=value;
+                debugger;
+                return true
+            }
+        }
         //debugger;
         if (type === 'LWPOLYLINE') {
-            var result = new Polyline(entity);
+            var result = new Proxy(new Polyline(entity), handler);
             //debugger;
             return result;
         } else if (type === 'TEXT') {
-            var result = new Text(entity);
+            var result = new Proxy(new Text(entity), handler);
             //debugger;
             return result;
         }
         return null;
     }
-
 
     //public static function
     //

@@ -26,6 +26,7 @@ fetch('./static/Siteplan2018.4.dxf')
 
 var churnDFX = function (risultato) {
     console.log('mannagia al cionco');
+    let layerTypes=['object', 'plot', 'plot_ref'];
     var sep = /\n/;
     var cionki = risultato.split(sep);
     var parsedDF = new DXFParser(risultato);
@@ -35,6 +36,9 @@ var churnDFX = function (risultato) {
     var entities_simple = [];
     for (var entity_dxf of DXFEntities) {
         var entity = parsedDF.getEntityObject(entity_dxf);
+        if (entity.type === 'LWPOLYLINE') {
+            debugger;
+        }
         if (!entity) {
             console.log('NO entity');
             continue;
@@ -43,22 +47,18 @@ var churnDFX = function (risultato) {
             continue;
         }
         //ignore unsupported layers
-        ['object', 'plot', 'plot_ref'].forEach(function(layer_type){
+        for(var layer_type of layerTypes) {
             let gino=entity.layer;
-            let pos=entity.layer.indexOf('#'+layer_type);
-            debugger;
-        })
-        {
+            entity.cacca=8;
+            let enzo=entity.cacca;
+            if(entity.layer.indexOf('#'+layer_type)===0) {
+                entity.layer_type=layer_type;
+                continue;
+            }
 
-          //  if(strpos(strtolower($entity->layer), '#'.$layer_type) === 0)
-           // {
-        //        $entity->layer_type = $layer_type;//
-          //      continue;
-         //   }
+            debugger;
         }
-     //   if(!$entity->layer_type) continue;
-        //console.log('is entity');
-       // console.log(entity);
+
 
     }
 

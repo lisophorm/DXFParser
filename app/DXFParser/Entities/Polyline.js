@@ -45,6 +45,7 @@ class Polyline extends Entity {
          {
          coords[] = first_coord;
          }
+    //
          */
 
         return coords;
