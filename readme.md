@@ -8,4 +8,3 @@ app/DXFParser/
     └── Text.js
 
 see main.js for sample running
-
