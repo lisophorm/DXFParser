@@ -17,23 +17,21 @@ class Text extends Entity {
 
     //protected function
     get style() {
-        var style = this.__getProperty('7');
+        let style = this.__getProperty('7');
 
         if (!style) {
             style = 'STANDARD';
         }
-
         return style;
     }
 
     //protected function
     get rotation() {
-        var rotation = this.__getProperty('50');
+        let rotation = this.__getProperty('50');
 
         if (!rotation) {
             rotation = 0;
         }
-
         return rotation;
     }
 

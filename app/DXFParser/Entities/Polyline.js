@@ -6,37 +6,37 @@ class Polyline extends Entity {
     }
 
     // protected function
-    __getVertices() {
+    get vertices() {
         return this.__getProperty('90');
     }
 
     //protected function
-    __getIsClosed() {
+    get isClosed() {
         return this.__getProperty('70');
     }
 
     //protected function
     get coords() {
-        var x_coords = this.__getProperty('10', true);
-        var y_coords = this.__getProperty('20', true);
-        var coords = [];
-        for (var key in x_coords) {
+        let x_coords = this.__getProperty('10', true);
+        let y_coords = this.__getProperty('20', true);
+        let coords = [];
+        for (let key in x_coords) {
             coords.push(
                 [
-                    // TODO debug this one
                     new Number(x_coords[key]).toFixed(4), new Number(y_coords[key]).toFixed(4)
                 ]
             );
         }
 
         //force unclosing of polygons
-        var first_coord = coords[0];
-        var last_coord = coords[key];
-        // TODO also check this one
+        let first_coord = coords[0];
+        let last_coord = coords[key];
+        // TODO check if this code behaves as expected
         if (last_coord[0] == first_coord[0] && last_coord[1] == first_coord[1]) {
             coords.pop();
         }
 
+        // TODO this was commented in the original PHP file
         /*
          //coords might not be closed - close them
          first_coord = coords[0];
@@ -52,11 +52,11 @@ class Polyline extends Entity {
     }
 
     //protected function
-    __getGeoString() {
+    get geoString() {
         //get coords string
-        coords = '';
-        //TODO check if beahes as exoected (foreach)
-        for (var coord_pair of this.coords) {
+        let coords = '';
+        //TODO format properly the return
+        for (let coord_pair of this.coords) {
             coords += coord_pair[0] + ' ' + coord_pair[1] + ',';
         }
 

@@ -1,15 +1,5 @@
-import alfonso from "./alfonso";
-import culo from'./culo';
 import DXFParser from './DXFParser/DxfParser';
 
-var text = 'ciao';
-
-var cacca = new culo(3, 3);
-cacca.a = 3;
-
-//var entitiesRegExp = /0\n*SECTION\n.2\nENTITIES[^]*0\n*ENDSEC/;
-
-//console.log('reg',entitiesRegExp);
 
 fetch('./static/Siteplan2018.4.dxf')
     .then(function (reso) {
@@ -57,8 +47,6 @@ var churnDFX = function (risultato) {
                 entity.layer_type=layer_type;
                 continue;
             }
-
-            debugger;
         }
 
 
