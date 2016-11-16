@@ -15,7 +15,7 @@ fetch('./static/Siteplan2018.4.dxf')
 
 
 var churnDFX = function (risultato) {
-    console.log('mannagia al cionco');
+
     let layerTypes=['object', 'plot', 'plot_ref'];
     var sep = /\n/;
     var cionki = risultato.split(sep);
@@ -40,9 +40,9 @@ var churnDFX = function (risultato) {
         //ignore unsupported layers
         for(var layer_type of layerTypes) {
             let gino=entity.layer;
-            entity.cacca=8;
+            entity.foo=8;
             console.log(entity.coords);
-            let enzo=entity.cacca;
+            let enzo=entity.foo;
             if(entity.layer.indexOf('#'+layer_type)===0) {
                 entity.layer_type=layer_type;
                 continue;
